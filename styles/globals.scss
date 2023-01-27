@@ -1,0 +1,66 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700&display=swap");
+
+// Tailwind
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  //   background-color: #fbfbfb;
+  font-size: 12pt;
+  font-family: montserrat, sans-serif;
+
+  @screen md {
+    font-size: 13pt;
+  }
+  @screen lg {
+    font-size: 14pt;
+  }
+  @media (max-width: 335px) {
+    font-size: 8pt;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 1rem;
+}
+h1 {
+  font-size: 3.2rem;
+  @screen md {
+    font-size: 4rem;
+  }
+}
+h2 {
+  font-size: 2.5rem;
+  letter-spacing: 0.6rem;
+}
+h3 {
+  font-size: 2rem;
+}
+h4 {
+  font-size: 1.5rem;
+}
+h5 {
+  font-size: 1.3rem;
+}
+
+p {
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.img-fluid {
+  max-width: 100%;
+  width: 100%;
+}
