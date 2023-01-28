@@ -2,11 +2,11 @@ import Header from "./Header";
 // import Meta from "./Meta";
 // import Footer from "./Footer";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, totalQuantity }) => {
   return (
     <div>
       {/* <Meta /> */}
-      {/* <Header /> */}
+      <Header totalQuantity={totalQuantity} />
       {children}
       {/* <Footer /> */}
     </div>

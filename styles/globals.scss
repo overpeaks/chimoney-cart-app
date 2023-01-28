@@ -38,7 +38,9 @@ h1 {
 }
 h2 {
   font-size: 2.5rem;
-  letter-spacing: 0.6rem;
+  letter-spacing: 0.3rem;
+  font-weight: 400;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 h3 {
   font-size: 2rem;
@@ -52,7 +54,7 @@ h5 {
 
 p {
   font-weight: 300;
-  margin-bottom: 1rem;
+  margin-bottom: 0.4rem;
 }
 
 body {
@@ -63,4 +65,29 @@ body {
 .img-fluid {
   max-width: 100%;
   width: 100%;
+}
+
+// Navbar
+.navbar {
+  background-color: rgb(245, 245, 245);
+  .cart {
+    padding: 0 0.4rem;
+    position: relative;
+    .cart-img {
+      max-width: 100%;
+      width: 2rem;
+    }
+    .total-quantity {
+      text-align: center;
+      border-radius: 100%;
+      font-size: 0.8em;
+      color: white;
+      background-color: black;
+      width: 1.4em;
+      height: 1.4em;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
 }
