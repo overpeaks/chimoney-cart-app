@@ -1,9 +1,22 @@
-const ProductCard = ({ product }) => {
+import * as React from "react";
+
+const ProductCard = ({ product, addProductToCart }) => {
   return (
-    <div>
-      <img className="img-fluid mb-3" src={product["img"]} alt="" />
-      <h6 className="title text-center">{product["productName"]}</h6>
-      <p className="mb-5">{JSON.stringify(product)}</p>
+    <div className="text-center mb-7">
+      <img
+        className="img-fluid mb-4 shadow-md rounded-lg"
+        src={product["img"]}
+        alt=""
+      />
+      <p className="title mb-0">{product["productName"]}</p>
+      <p className="text-xs font-normal">Gift Card</p>
+      <p className="font-medium">${product["minSenderDenomination"]}</p>
+      <button
+        className="mx-auto px-4 py-1 border-stone-900 border rounded-md hover:bg-stone-900 hover:text-white transition-all"
+        onClick={() => addProductToCart(product["productId"])}
+      >
+        Add to Cart
+      </button>
     </div>
   );
 };
