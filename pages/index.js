@@ -1,6 +1,6 @@
 import ProductCard from "@/components/ProductCard";
 
-export const index = ({ products, addProductToCart }) => {
+export const index = ({ products, addToCart }) => {
   return (
     <div>
       <div className="products-page">
@@ -21,7 +21,7 @@ export const index = ({ products, addProductToCart }) => {
                   <ProductCard
                     key={i}
                     product={product}
-                    addProductToCart={addProductToCart}
+                    addToCart={addToCart}
                   />
                 ))
             }
@@ -35,7 +35,6 @@ export const index = ({ products, addProductToCart }) => {
 
 // Get Products
 export async function getServerSideProps() {
-  console.log("test");
   // Get gift cards
   // Fetch data from external API
   const options = {

@@ -2,11 +2,14 @@ import Header from "./Header";
 // import Meta from "./Meta";
 // import Footer from "./Footer";
 
-const Layout = ({ children, totalQuantity }) => {
+const Layout = ({ children, totalQuantity, showAddToCartTooltip }) => {
   return (
     <div>
       {/* <Meta /> */}
-      <Header totalQuantity={totalQuantity} />
+      <Header
+        totalQuantity={totalQuantity}
+        showAddToCartTooltip={showAddToCartTooltip}
+      />
       {children}
       {/* <Footer /> */}
     </div>
