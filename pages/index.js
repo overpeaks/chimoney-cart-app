@@ -71,7 +71,6 @@ export const index = ({ products, addToCart }) => {
 
 // Get Products
 export async function getServerSideProps() {
-  console.log("test");
   // Get gift cards
   // Fetch data from external API
   const options = {
