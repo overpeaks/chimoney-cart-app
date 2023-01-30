@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faMinus, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const CartItem = ({
   product,
@@ -9,7 +9,7 @@ const CartItem = ({
   updateItemQuantityCart,
 }) => {
   return (
-    <div className="cart-item grid grid-cols-6 gap-5 mb-5 pb-5 items-center text-center">
+    <div className="cart-item grid grid-cols-2 md:grid-cols-6 gap-5 mb-5 pb-5 items-center text-center">
       {/* Item with image, name, and price */}
       <div className="col-span-3 flex gap-4 items-center text-left">
         <img
@@ -24,7 +24,7 @@ const CartItem = ({
           </p>
         </div>
       </div>
-      <div className="quantity">
+      <div className="quantity text-left md:text-center pl-5 md:pl-0">
         <button
           className="decrement"
           onClick={() => {
@@ -43,16 +43,20 @@ const CartItem = ({
           <FontAwesomeIcon icon={faPlus} />
         </button>
       </div>
-      <div className="subtotal font-medium">
+      <div className="subtotal font-medium hidden md:block">
         {"$" + item.quantity * product["minSenderDenomination"]}
       </div>
-      <div className="remove">
+      <div className="remove text-right md:text-center">
         <button
           onClick={() => {
             removeFromCart(item.id);
           }}
         >
-          x
+          {window.innerWidth > 768 ? (
+            <FontAwesomeIcon icon={faTrash} />
+          ) : (
+            "Remove"
+          )}
         </button>
       </div>
     </div>

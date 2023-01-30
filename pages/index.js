@@ -5,7 +5,7 @@ export const index = ({ products, addToCart }) => {
     <div>
       <div className="products-page">
         <div className="title container mb-16">
-          <h2>Products</h2>
+          <h1>Products</h1>
         </div>
 
         {/* Products List */}

@@ -1,4 +1,5 @@
 import CartItem from "@/components/CartItem";
+import CartSummary from "@/components/CartSummary";
 
 const cartPage = ({
   products,
@@ -10,7 +11,7 @@ const cartPage = ({
     <div>
       <div className="cart-page">
         <div className="title container mb-16">
-          <h2>Cart</h2>
+          <h1>Cart</h1>
         </div>
 
         {/* show cart items */}
@@ -28,9 +29,9 @@ const cartPage = ({
             }
           >
             <p className="col-span-3 text-left">Items</p>
-            <p>Quantity</p>
-            <p>Subtotal</p>
-            <p>Remove</p>
+            <p className="hidden md:block">Quantity</p>
+            <p className="hidden md:block">Subtotal</p>
+            <p className="hidden md:block">Remove</p>
           </div>
           <div className="cart-items">
             {cart.map((item, i) => {
@@ -47,6 +48,9 @@ const cartPage = ({
           </div>
         </div>
       </div>
+
+      {/* Cart Summary */}
+      <CartSummary products={products} cart={cart} />
     </div>
   );
 };
