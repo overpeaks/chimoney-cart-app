@@ -11,6 +11,11 @@ const CartSummary = ({ products, cart }) => {
     return (Math.round((num + Number.EPSILON) * 100) / 100).toFixed(2);
   };
 
+  // dont show summary if cart is empty
+  if (cart.length <= 0) {
+    return;
+  }
+
   return (
     <div className="container flex justify-end pt-6 pb-10 cart-summary-container">
       <div className="cart-summary">

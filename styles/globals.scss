@@ -187,3 +187,24 @@ body {
     }
   }
 }
+
+// Products page
+.pagination {
+  $border-color: rgb(55, 55, 55);
+  color: $border-color;
+  border: 1px $border-color solid;
+  .pagination-link {
+    display: inline-block;
+    &:not(:last-child) {
+      border-right: 1px $border-color solid;
+    }
+    &.active {
+      background-color: $border-color;
+      color: white;
+    }
+    &:hover {
+      background-color: rgb(150, 150, 150);
+      color: white;
+    }
+  }
+}
