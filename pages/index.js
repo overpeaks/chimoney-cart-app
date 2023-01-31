@@ -49,10 +49,13 @@ export const index = ({ products, addToCart }) => {
               {pages.map((item, i) => {
                 return (
                   <Link
-                    href={"/?page=" + item}
+                    href={item != page ? "/?page=" + item : ""}
+                    onClick={(event) =>
+                      item == page ? event.preventDefault() : false
+                    }
                     key={i}
                     className={
-                      "pagination-link px-2 py-1" +
+                      "pagination-link px-2 py-1 mx-2" +
                       (item == page ? " active" : "")
                     }
                   >

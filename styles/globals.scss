@@ -190,19 +190,22 @@ body {
 
 // Products page
 .pagination {
-  $border-color: rgb(55, 55, 55);
+  $border-color: rgb(0, 0, 0);
   color: $border-color;
-  border: 1px $border-color solid;
+  font-weight: 600;
   .pagination-link {
+    cursor: default;
+    transition: all 0.15s;
+    border-radius: 100%;
+    width: 2em;
+    height: 2em;
     display: inline-block;
-    &:not(:last-child) {
-      border-right: 1px $border-color solid;
-    }
     &.active {
       background-color: $border-color;
       color: white;
     }
-    &:hover {
+    &:not(.active):hover {
+      cursor: pointer;
       background-color: rgb(150, 150, 150);
       color: white;
     }
