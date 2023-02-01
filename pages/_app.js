@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }) {
   // get cart from local storage and mark as loaded
   useEffect(() => {
     if (!cartLoaded) {
-      const localData = JSON.parse(localStorage.getItem("cart"));
+      const localData = JSON.parse(localStorage.getItem("cart")) ?? [];
       setCart(localData);
       setCartLoaded(true);
     }
@@ -40,10 +40,12 @@ export default function App({ Component, pageProps }) {
     }
 
     // update total quantity
-    const total = cart.reduce((total, item) => {
-      return total + Number(item.quantity);
-    }, 0);
-    setTotalQuantity(total);
+    if (cart) {
+      const total = cart.reduce((total, item) => {
+        return total + Number(item.quantity);
+      }, 0);
+      setTotalQuantity(total);
+    }
   }, [cart]);
 
   // add item to cart
