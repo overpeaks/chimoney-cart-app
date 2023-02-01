@@ -1,38 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Running the app
 
-## Getting Started
-
-First, run the development server:
+First, install the node modules:
 
 ```bash
-npm run dev
-# or
+yarn install
+```
+
+Add the API key in the .env file
+
+```bash
+API_KEY=api_key_here
+```
+
+Then run the development server:
+
+```bash
 yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Additional Features implemented
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- Retrieving the products from the Chimoney API
+- Products list page with pagination
+- Summary section on cart page
+- Cart State only stores IDs and Quantity
+- Made sure the website is mobile friendly
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Design Process
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+I approached the project by keeping a global Cart state which was passed down to other pages when used. I only retrieved the products on the pages where they were needed (which happens to be all of them in this project), but this could be changed to either be retrieved and used globally, or just for the needed pages to keep API calls and retrieved data to a minimum. The products were only used for displaying products or calculating costs, otherwise the cart was used for updating and keeping track of added items and the quantities (because the cart was requested to only contain IDs and quantity, I set the gift card items to use the minimum gift card amount as the price).
 
-## Learn More
+I used NextJS with React which helped keep pages separate and for easier routing. I used TailwindCSS for the CSS library which just made styling a little easier by having relevant classes that I can add with the needed CSS code instead of having to delve into the styles file. 
 
-To learn more about Next.js, take a look at the following resources:
+I tried to keep the website looking as clean, minimal, and clear as I could. One of my goals was to make sure all the elements were clear in their use and function and how they connected to each product. I made sure to create separate components where it made sense, and tried to keep the code functions clear and descriptive in what they do and why. In some cases I had to do what felt like ugly solutions, but because of the way the library (eg. NextJS) functioned there was limited options (eg. adding a state for if the cart has been loaded before allowing the cart to be saved to local storage to prevent it from being overwritten).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Improving the app
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Show a loading screen/popup when going to another page or when retrieving data. While the server is retrieving the API data there is a bit of a delay causing a 1-2 second pause before it goes to the next page.
+- Cache pages and/or products from the API. Depending on how often the products get updated, it could significantly increase page loading if the products where cached for some time.
+- Only retrieve the needed products (eg. by requesting a certain amount of products for each paginated page, or just retrieving a specific set of products if no others are needed (eg. on a product page))
+- Lazy loading products/images. Not as useful on desktop with the current design of the app, but could be useful for mobile or if the products instead loaded as you scroll instead of the pagination.
+- Add more animations for different actions to make it more apparent to the user what just happened and is less jarring. Eg, When removing a product on the cart page, have it collapse instead of instantly restructuring. 
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
